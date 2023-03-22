@@ -1,0 +1,25 @@
+{
+  "name": "proyecto-asincronismo",
+  "version": "1.0.0",
+  "description": "Proyecto trabajado con asincronismo en js y consumiendo un api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/DavidTrujillo123/proyecto-asincronismo-js.git"
+  },
+  "keywords": [
+    "asincronismo",
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "David Trujillo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DavidTrujillo123/proyecto-asincronismo-js/issues"
+  },
+  "homepage": "https://github.com/DavidTrujillo123/proyecto-asincronismo-js#readme"
+}
