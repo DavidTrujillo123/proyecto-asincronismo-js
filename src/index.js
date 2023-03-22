@@ -20,7 +20,7 @@ async function fetchData(urlApi){
 }
 async function getData(urlApi){
     try{
-        const data = await fetchData(`${urlApi}/character`);
+        const data = await fetchData(`${urlApi}`);
         const arrData = data.results;
         createCards(arrData);
     }
@@ -28,7 +28,6 @@ async function getData(urlApi){
         console.log(err);
     }
 };
-
 const createCards = (arrData) =>{
     for (const character of arrData) {
         const cards = document.createElement('div');
@@ -72,4 +71,4 @@ const createCards = (arrData) =>{
     }
 }
 
-getData(API);
+getData(`${API}/character?page=1`);
