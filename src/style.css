@@ -1,5 +1,4 @@
 :root{
-
     --blue-light: #B2DAE4;
     --yellow-light: #F8FE76;
     --plumbus-pink: #F9D9CA;
@@ -10,7 +9,6 @@
     --sm: 14px;
     --md: 18px;
     --lg: 28px;
-
 }
 *{
     margin: 0;
@@ -22,7 +20,7 @@ body{
 }
 a{
     text-decoration: none;
-    color: black;
+    color: white;
 }
 span{
     font-weight: bolder;
@@ -165,6 +163,34 @@ span{
     border-radius: 0 0 10px 10px;
 }
 
+/* Enlaces paginas */
+.nav_down_container{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-down{
+    margin: 10px;
+    padding: 20px;
+    border-radius: 20px;
+    backdrop-filter: brightness(0.3);
+}
+.navPage{
+    color: white;
+    text-decoration: none;
+    padding-left: 5px;
+    font-size: var(--sm);
+    font-weight: bold;
+}
+.nav-button {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    background-color: var(--summer-tomato);
+}
+
 @media(min-width: 640px){
     :root{
         --sm: 10px;
@@ -190,5 +216,13 @@ span{
     }
     .cards .info{
         font-size: var(--sm);
+    }
+    .navPage{
+        padding-left: 20px;
+        font-size: var(--md);
+    }
+    .nav-button {
+        width: 50px;
+        height: 50px;
     }
 }
