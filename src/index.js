@@ -5,7 +5,32 @@ const character_container = document.querySelector('.character_container');
 const btnAfter = document.querySelector('.after-page');
 const btnBefore = document.querySelector('.before-page');
 const navPage = document.querySelectorAll('.navPage');
+const backgroundImg = document.querySelector('#background-img');
+const listBackgroundImg = [
+    'https://live.staticflickr.com/7903/46446265205_cfe81d35a0_h.jpg', 
+    'https://live.staticflickr.com/65535/52766846681_9d89901ef0_h.jpg',
+    'https://live.staticflickr.com/65535/52767260260_72324ac053_h.jpg',
+    'https://live.staticflickr.com/65535/52766308912_bdb90c841c_h.jpg',
+    'https://live.staticflickr.com/65535/52767100244_8b31f3c604_h.jpg',
+    'https://live.staticflickr.com/65535/52767100304_42129ff55a_h.jpg',
+    'https://live.staticflickr.com/65535/52766846701_d96c11da32_h.jpg',
+    'https://live.staticflickr.com/65535/52766308982_50910dab07_h.jpg'
+];
+//background
+let inter = 0;
+function changeBackgound(){
+    
+    if(inter >= listBackgroundImg.length){
+        inter=0;
+    } 
+    backgroundImg.setAttribute('src', listBackgroundImg[inter]);
+    inter++;
+}
 
+function showBackgrond(){
+    setInterval(changeBackgound, 5000);
+}
+showBackgrond();
 //menu-mobile
 function toggleMenuMobile(){
     console.log('hola');
