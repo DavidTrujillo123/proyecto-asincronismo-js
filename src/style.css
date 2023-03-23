@@ -160,6 +160,7 @@ span{
     padding: 10px;
     height:100px; 
     backdrop-filter: brightness(0.3);
+    -webkit-backdrop-filter: brightness(0.3);
     border-radius: 0 0 10px 10px;
 }
 
@@ -176,6 +177,7 @@ span{
     padding: 20px;
     border-radius: 20px;
     backdrop-filter: brightness(0.3);
+    -webkit-backdrop-filter: brightness(0.3);
 }
 .navPage{
     color: white;
