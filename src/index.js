@@ -1,10 +1,10 @@
-//menu-mobile
 const menu_mobile = document.querySelector('.menu_mobile');
 const iconMenuMobile = document.querySelector('.menu_mobile_icon');
+const opcionPageArr = document.querySelectorAll('.navbar_btn');
 const character_container = document.querySelector('.character_container');
 const btnAfter = document.querySelector('.after-page');
 const btnBefore = document.querySelector('.before-page');
-const navPage = document.querySelectorAll('.navPage');
+const navPageArr = document.querySelectorAll('.navPage');
 const backgroundImg = document.querySelector('#background-img');
 const listBackgroundImg = [
     'https://live.staticflickr.com/7903/46446265205_cfe81d35a0_h.jpg', 
@@ -19,7 +19,6 @@ const listBackgroundImg = [
 //background
 let inter = 0;
 function changeBackgound(){
-    
     if(inter >= listBackgroundImg.length){
         inter=0;
     } 
@@ -36,6 +35,23 @@ function toggleMenuMobile(){
     console.log('hola');
     menu_mobile.classList.toggle('inactive');
 }
+
+//menu de paginas principal. Si hace click se pinta
+function addClickOptionPage(){
+    opcionPageArr.forEach(element => {
+        element.addEventListener('click', ()=>{
+            isClicked(element);
+        });
+    });
+}
+function isClicked(elementNow){
+    opcionPageArr.forEach(element => {
+        element.classList.remove('clicked');
+    });
+    elementNow.classList.add('clicked');
+}
+addClickOptionPage();
+
 //Llama a api
 const API = 'https://rickandmortyapi.com/api';
 
@@ -104,13 +120,13 @@ const removeAllCards = (nodeParent) => {
     }
 }
 
-function putPage(cont){
+function setPage(cont){
     removeAllCards(character_container);
     getData(API,cont);
 }
 
-function createNavDown(){
-    navPage.forEach(element => {
+function createNavPage(){
+    navPageArr.forEach(element => {
         element.setAttribute('data-id', element.textContent);
         addClick(element);
     });
@@ -119,61 +135,69 @@ function createNavDown(){
 
 function addClick(element){
     element.addEventListener('click', ()=>{
-        let newId = refreshNavDown(element.textContent);
-        putPage(newId);
+        let newId = refreshNavPage(element.textContent);
+        setPage(newId);
     });
 }
-
-function refreshNavDown(nPage){
+function refreshNavPage(nPage){
     let num = nPage;
-    let mid = (navPage.length)/2-1;
+    let mid = (navPageArr.length)/2-1;
     let i = mid
     //posición media
-    navPage[mid].setAttribute('data-id', num);
-    navPage[mid].innerText = num;
+    navPageArr[mid].setAttribute('data-id', num);
+    navPageArr[mid].innerText = num;
     //aumento numeros nav
-    while (i < navPage.length){
+    while (i < navPageArr.length){
         if(num > 42){
             num = 1;
         }
-        navPage[i].setAttribute('data-id', num);
-        navPage[i].innerText = num;
+        navPageArr[i].setAttribute('data-id', num);
+        navPageArr[i].innerText = num;
         num++;
         i++;
     }
     //retroceso numeros nav
     i = mid-1;
-    num = navPage[mid].textContent-1;
+    num = navPageArr[mid].textContent-1;
     while(i >= 0){
         if(num < 1){
             num = 42;
         }
-        navPage[i].setAttribute('data-id', num);
-        navPage[i].innerText = num;
+        navPageArr[i].setAttribute('data-id', num);
+        navPageArr[i].innerText = num;
         num--;
         i--;
     }
-    return navPage[mid].textContent;
+    return navPageArr[mid].textContent;
 }
-
-let cont = 0;
-getData(API,1);
-createNavDown();
-btnAfter.addEventListener('click', ()=>{
-    cont+=10;
-    if(cont > 42){
+function afterBeforeAction(cont,flag){   
+    (flag) ? cont+=10
+    : cont-=10; 
+    
+    if(cont < 1){
+        if(cont == 0) cont = 1;
+        else cont = 40;
+    }
+    if(cont > 40){
         cont = 1;
     }
-    refreshNavDown(cont);
-    putPage(cont)
+    
+    refreshNavPage(cont);
+    setPage(cont);
+}
+
+getData(API,1);
+createNavPage();
+btnAfter.addEventListener('click', ()=>{
+    let cont = Number(navPageArr[4].dataset.id);
+    if (cont === 1) {
+        cont = 0;
+    }
+    afterBeforeAction(cont,true);
 });
 btnBefore.addEventListener('click', ()=>{
-    cont-=10;
-    if(cont < 1){
-        cont = 42;
-    }
-    refreshNavDown(cont);
-    putPage(cont)
+    let cont = Number(navPageArr[4].dataset.id);
+    afterBeforeAction(cont,false);
 });
 iconMenuMobile.addEventListener('click', toggleMenuMobile);
 

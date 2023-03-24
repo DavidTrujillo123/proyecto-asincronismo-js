@@ -6,6 +6,7 @@
     --portal-green: #39FF14;
     --solenya: #006300;
     --white-proof: #f7f7f7;
+    --black-proo: #393E46;
     --sm: 14px;
     --md: 18px;
     --lg: 28px;
@@ -28,6 +29,9 @@ span{
     font-weight: bolder;
     display: block;
 }
+ul{
+    list-style: none;
+}
 .inactive{
     display: none;
 }
@@ -38,8 +42,6 @@ span{
     height: 100vh;
     object-fit: cover;
     position: fixed;
-    /* top: 70px; */
-    
 }
 
 /* Navbar */
@@ -61,19 +63,23 @@ span{
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-left: 50px;
 }
-.navbar_container ul li{
-    margin-right: 100px;
+.navbar_btn{
+    /* margin-left: 0; */
+    margin-bottom: 16px;
     padding: 10px;
-    border: 1px solid var(--portal-green);
+    box-shadow: 2px 0px 10px 0px var(--portal-green);
+    -webkit-box-shadow: 2px 0px 10px 0px var(--portal-green);
+    -moz-box-shadow: 2px 0px 10px 0px var(--portal-green);
     border-radius: 10px;
+    background-color: var(--black-proo);
 }
-.navbar_container ul li:hover{
-    /* background-image: url('../multumedia/portal.png'); */
-    object-fit: cover;
+.clicked{
+    background-color: var(--portal-green);
 }
-.navbar_container ul li a{
-    color: var(--solenya);
+.navbar_btn a{
+    color: var(--white-proof);
     font-size: var(--md);
     font-weight: bold;
 }
@@ -105,16 +111,6 @@ span{
     right: 0;
     z-index: 1;
 }
-.menu_mobile ul{
-    list-style: none;
-}
-.menu_mobile ul li{
-    margin-bottom: 8px;
-    padding: 10px;
-    border: 1px solid var(--portal-green);
-    border-radius: 10px;
-}
-
 
 /* Cards */
 .characters{
@@ -122,10 +118,10 @@ span{
 }
 .characters h1{
     font-size: var(--lg);
-    color: black;
+    color: var(--summer-tomato);
     font-weight: bold;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: brightness(0.3);
+    -webkit-backdrop-filter: brightness(0.3);
     width: 50%;
     padding: 20px 0;
     margin: 0 auto 20px auto;
@@ -173,14 +169,14 @@ span{
 }
 
 /* Enlaces paginas */
-.nav_down_container{
+.nav_page_container{
     width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.nav-down{
+.nav-page-bar{
     margin: 10px;
     padding: 20px;
     border-radius: 20px;
@@ -205,14 +201,15 @@ span{
     :root{
         --sm: 10px;
         --md: 12px;
-        --lg: 20px;
     }
     .navbar_container .inactive{
         display: flex;
     }
+    .navbar_container{
+        justify-content: start;
+    }
     .navbar_container img:first-child{
-        position: absolute;
-        left: 0;
+        margin-left: 50px;
     }
     .navbar_container img:nth-child(2){
         display: none;
@@ -230,6 +227,10 @@ span{
     .navPage{
         padding-left: 20px;
         font-size: var(--md);
+    }
+    .navbar_btn{
+        margin-right: 100px;
+        margin-bottom: 0px;
     }
     .nav-button {
         width: 50px;
