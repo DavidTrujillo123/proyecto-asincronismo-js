@@ -59,6 +59,7 @@ ul{
     background-repeat: no-repeat;
     animation: changeBg 60s ease-in-out infinite alternate;
 }
+/* ------------------------------------Animaciones---------------------------*/
 @keyframes changeBg {
     0% {
         background-image: url('https://live.staticflickr.com/65535/52769382671_859c6bce2b_o.jpg');
@@ -83,6 +84,58 @@ ul{
     }
     100%{
         background-image: url('https://live.staticflickr.com/65535/52766846701_d96c11da32_h.jpg');
+    }
+}
+@-webkit-keyframes changeBg{
+    0% {
+        -webkit-background-image: url('https://live.staticflickr.com/65535/52769382671_859c6bce2b_o.jpg');
+    }
+    14% {
+        -webkit-background-image: url('https://live.staticflickr.com/65535/52766846681_9d89901ef0_h.jpg');
+    }
+    28% {
+        -webkit-background-image: url('https://live.staticflickr.com/65535/52767260260_72324ac053_h.jpg');
+    }
+    42%{
+        -webkit-background-image: url('https://live.staticflickr.com/65535/52766308982_50910dab07_h.jpg');
+    }
+    56% {
+        -webkit-background-image: url('https://live.staticflickr.com/65535/52766308912_bdb90c841c_h.jpg');
+    }
+    70% {
+        -webkit-background-image: url('https://live.staticflickr.com/65535/52767100244_8b31f3c604_h.jpg');
+    }
+    84%{
+        -webkit-background-image: url('https://live.staticflickr.com/65535/52767100304_42129ff55a_h.jpg');
+    }
+    100%{
+        -webkit-background-image: url('https://live.staticflickr.com/65535/52766846701_d96c11da32_h.jpg');
+    }
+}
+@-moz-keyframes changeBg{
+    0% {
+        -moz-background-image: url('https://live.staticflickr.com/65535/52769382671_859c6bce2b_o.jpg');
+    }
+    14% {
+        -moz-background-image: url('https://live.staticflickr.com/65535/52766846681_9d89901ef0_h.jpg');
+    }
+    28% {
+        -moz-background-image: url('https://live.staticflickr.com/65535/52767260260_72324ac053_h.jpg');
+    }
+    42%{
+        -moz-background-image: url('https://live.staticflickr.com/65535/52766308982_50910dab07_h.jpg');
+    }
+    56% {
+        -moz-background-image: url('https://live.staticflickr.com/65535/52766308912_bdb90c841c_h.jpg');
+    }
+    70% {
+        background-image: url('https://live.staticflickr.com/65535/52767100244_8b31f3c604_h.jpg');
+    }
+    84%{
+        -moz-background-image: url('https://live.staticflickr.com/65535/52767100304_42129ff55a_h.jpg');
+    }
+    100%{
+        -moz-background-image: url('https://live.staticflickr.com/65535/52766846701_d96c11da32_h.jpg');
     }
 }
 /* Navbar */
