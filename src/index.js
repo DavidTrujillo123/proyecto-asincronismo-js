@@ -4,35 +4,11 @@ const opcionPageArr = document.querySelectorAll('.navbar_btn');
 const character_container = document.querySelector('.character_container');
 const btnAfter = document.querySelector('.after-page');
 const btnBefore = document.querySelector('.before-page');
+const btnUp = document.querySelector('.up-btn');
 const navPageArr = document.querySelectorAll('.navPage');
-const backgroundImg = document.querySelector('#background-img');
-const listBackgroundImg = [
-    'https://live.staticflickr.com/7903/46446265205_cfe81d35a0_h.jpg', 
-    'https://live.staticflickr.com/65535/52766846681_9d89901ef0_h.jpg',
-    'https://live.staticflickr.com/65535/52767260260_72324ac053_h.jpg',
-    'https://live.staticflickr.com/65535/52766308912_bdb90c841c_h.jpg',
-    'https://live.staticflickr.com/65535/52767100244_8b31f3c604_h.jpg',
-    'https://live.staticflickr.com/65535/52767100304_42129ff55a_h.jpg',
-    'https://live.staticflickr.com/65535/52766846701_d96c11da32_h.jpg',
-    'https://live.staticflickr.com/65535/52766308982_50910dab07_h.jpg'
-];
-//background
-let inter = 0;
-function changeBackgound(){
-    if(inter >= listBackgroundImg.length){
-        inter=0;
-    } 
-    backgroundImg.setAttribute('src', listBackgroundImg[inter]);
-    inter++;
-}
 
-function showBackgrond(){
-    setInterval(changeBackgound, 5000);
-}
-showBackgrond();
 //menu-mobile
 function toggleMenuMobile(){
-    console.log('hola');
     menu_mobile.classList.toggle('inactive');
 }
 
@@ -45,13 +21,18 @@ function addClickOptionPage(){
     });
 }
 function isClicked(elementNow){
-    opcionPageArr.forEach(element => {
-        element.classList.remove('clicked');
-    });
-    elementNow.classList.add('clicked');
+    let cont = 0;
+    while(cont<opcionPageArr.length){
+        (elementNow.dataset.id == opcionPageArr[cont].dataset.id)
+        ?   opcionPageArr[cont].classList.add('clicked') 
+        :   opcionPageArr[cont].classList.remove('clicked');   
+        cont++;
+    }
 }
-addClickOptionPage();
-
+//Subir a la principio de la página
+function upPage(){
+    window.location = '#';
+}
 //Llama a api
 const API = 'https://rickandmortyapi.com/api';
 
@@ -178,7 +159,7 @@ function afterBeforeAction(cont,flag){
         if(cont == 0) cont = 1;
         else cont = 40;
     }
-    if(cont > 40){
+    if(cont > 42){
         cont = 1;
     }
     
@@ -186,8 +167,10 @@ function afterBeforeAction(cont,flag){
     setPage(cont);
 }
 
-getData(API,1);
+// showBackgrond();
 createNavPage();
+addClickOptionPage();
+getData(API,1);
 btnAfter.addEventListener('click', ()=>{
     let cont = Number(navPageArr[4].dataset.id);
     if (cont === 1) {
@@ -200,6 +183,4 @@ btnBefore.addEventListener('click', ()=>{
     afterBeforeAction(cont,false);
 });
 iconMenuMobile.addEventListener('click', toggleMenuMobile);
-
-
-
+btnUp.addEventListener('click', upPage);
