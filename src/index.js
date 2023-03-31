@@ -1,6 +1,6 @@
 const menu_mobile = document.querySelector('.menu_mobile');
 const iconMenuMobile = document.querySelector('.menu_mobile_icon');
-const opcionPageArr = document.querySelectorAll('.navbar_btn');
+const opcionPageArr = document.querySelectorAll('.primary_btn');
 const character_container = document.querySelector('.character_container');
 const btnAfter = document.querySelector('.after-page');
 const btnBefore = document.querySelector('.before-page');

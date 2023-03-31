@@ -48,6 +48,7 @@ ul{
     background-size: cover;
     background-repeat: no-repeat;
     animation: changeBg 60s ease-in-out infinite alternate;
+    top: 0;
 }
 @keyframes changeBg {
     0% {
@@ -87,6 +88,7 @@ ul{
     -webkit-backdrop-filter: blur(10px);
     object-fit: cover;
     z-index: 1;
+    top: 0;
 }
 .navbar_container ul{
     list-style: none;
@@ -96,7 +98,7 @@ ul{
     width: 100%;
     margin-left: 50px;
 }
-.navbar_btn{
+.primary_btn{
     /* margin-left: 0; */
     margin-bottom: 16px;
     padding: 10px;
@@ -105,11 +107,12 @@ ul{
     -moz-box-shadow: 2px 0px 10px 0px var(--portal-green);
     border-radius: 10px;
     background-color: var(--black-proo);
+    text-align: center;
 }
 .clicked{
     background-color: var(--portal-green);
 }
-.navbar_btn a{
+.primary_btn a{
     color: var(--white-proof);
     font-size: var(--md);
     font-weight: bold;
@@ -145,9 +148,9 @@ ul{
 
 /* Cards */
 .characters{
-    padding-top: 100px;
+    margin-top: 100px;
 }
-.characters h1{
+.characters .title{
     font-size: var(--lg);
     color: var(--summer-tomato);
     font-weight: bold;
@@ -265,7 +268,7 @@ ul{
         padding-left: 20px;
         font-size: var(--md);
     }
-    .navbar_btn{
+    .primary_btn{
         margin-right: 100px;
         margin-bottom: 0px;
     }

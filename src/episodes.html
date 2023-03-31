@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        :root {
+            --blue-light: #b2dae4;
+            --yellow-light: #f8fe76;
+            --plumbus-pink: #f9d9ca;
+            --summer-tomato: #f29901;
+            --portal-green: #39ff14;
+            --solenya: #006300;
+            --white-proof: #f7f7f7;
+            --black-proo: #393e46;
+            --sm: 14px;
+            --md: 18px;
+            --lg: 28px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Quicksand", sans-serif;
+            background-image: radial-gradient(circle, #f8fe76, #e4fe61, #ccfe4d, #afff39, #8bff27, #6bff55, #47ff76, #00fe92, #00f9c3, #32f1e1, #7de6ec, #b2dae4);
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        span {
+            font-weight: bolder;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Navbar */
+        .navbar_container {
+            display: flex;
+            position: fixed;
+            width: 100%;
+            height: 70px;
+            justify-content: center;
+            border-bottom: 2px solid var(--portal-green);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            object-fit: cover;
+            z-index: 1;
+            top: 0;
+        }
+
+        .navbar_container ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-left: 50px;
+        }
+
+        .primary_btn {
+            /* margin-left: 0; */
+            margin-bottom: 16px;
+            padding: 10px;
+            box-shadow: 2px 0px 10px 0px var(--portal-green);
+            -webkit-box-shadow: 2px 0px 10px 0px var(--portal-green);
+            -moz-box-shadow: 2px 0px 10px 0px var(--portal-green);
+            border-radius: 10px;
+            background-color: var(--black-proo);
+            text-align: center;
+        }
+
+        .clicked {
+            background-color: var(--portal-green);
+        }
+
+        .primary_btn a {
+            color: var(--white-proof);
+            font-size: var(--md);
+            font-weight: bold;
+        }
+
+        .navbar_container img:first-child {
+            height: 68px;
+            width: 70px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .navbar_container img:nth-child(2) {
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            right: 0;
+            top: 10px;
+        }
+
+        .inactive {
+            display: none;
+        }
+
+        /* menu mobile */
+        .menu_mobile {
+            font-size: var(--md);
+            text-align: center;
+            width: 160px;
+            padding: 10px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+            position: fixed;
+            top: 70px;
+            right: 0;
+            z-index: 1;
+        }
+
+        /* Page center */
+        .main-div {
+            width: 100%;
+            height: -webkit-fill-available;
+            margin-top: 100px;
+        }
+
+        .title {
+            font-size: var(--lg);
+            color: var(--summer-tomato);
+            font-weight: bold;
+            backdrop-filter: brightness(0.3);
+            -webkit-backdrop-filter: brightness(0.3);
+            width: 50%;
+            padding: 20px 0;
+            margin: 0 auto 20px auto;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0px 12px 18px -3px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 0px 12px 18px -3px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 12px 18px -3px rgba(0, 0, 0, 0.75);
+        }
+
+        .season-page {
+            margin: 0 auto;
+            width: 90vw;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(3, 154px);
+            gap: 10px;
+        }
+
+        .cards {
+            background-color: rebeccapurple;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0px 12px 18px -3px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 0px 12px 18px -3px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 12px 18px -3px rgba(0, 0, 0, 0.75);
+            position: relative;
+        }
+
+        .cards p {
+            margin-bottom: 24px;
+            font-weight: bold;
+            font-size: var(--md);
+            text-align: center;
+        }
+
+        .cards .more_info_btn {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--md);
+            right: 10px;
+            bottom: 2px;
+
+        }
+
+        .cards a {
+            font-size: var(--sm);
+
+        }
+
+        .cards:nth-child(3) {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 2;
+        }
+
+        footer {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar_container">
+            <img src="https://repository-images.githubusercontent.com/120371205/b6740400-92d4-11ea-8a13-d5f6e0558e9b"
+                alt="">
+            <img class='menu_mobile_icon' src="../multumedia/icons8-menú-en-círculos-60.png" alt="">
+            <div class="menu_desktop inactive">
+                <ul>
+                    <li class="primary_btn clicked" data-id="1"><a href="#">Characters</a></li>
+                    <li class="primary_btn" data-id="2"><a href="#">Episodes</a></li>
+                    <li class="primary_btn" data-id="3"><a href="#">Locations</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="menu_mobile inactive">
+            <ul>
+                <li class="primary_btn clicked" data-id="1"><a href="#">Characters</a></li>
+                <li class="primary_btn" data-id="2"><a href="#">Episodes</a></li>
+                <li class="primary_btn" data-id="3"><a href="#">Locations</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main-div">
+        <h1 class="title">Seasons</h1>
+        <section class="season-page">
+            <div class="cards">
+                <p>Season 1</p>
+                <div class="primary_btn more_info_btn">
+                    <a href="">More info</a>
+                </div>
+            </div>
+            <div class="cards">
+                <p>Season 1</p>
+                <div class="primary_btn more_info_btn">
+                    <a href="">More info</a>
+                </div>
+            </div>
+            <div class="cards">
+                <p>Season 1</p>
+                <div class="primary_btn more_info_btn">
+                    <a href="">More info</a>
+                </div>
+            </div>
+            <div class="cards">
+                <p>Season 1</p>
+                <div class="primary_btn more_info_btn">
+                    <a href="">More info</a>
+                </div>
+            </div>
+            <div class="cards">
+                <p>Season 1</p>
+                <div class="primary_btn more_info_btn">
+                    <a href="">More info</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
